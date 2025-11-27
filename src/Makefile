@@ -13,19 +13,19 @@ STAGE3 = stack_test
 all: $(STAGE1) $(STAGE2) $(STAGE3)
 
 $(STAGE1): $(SOURCES1) door_struct.h
-	if not exist ..\build mkdir ..\build
+	mkdir -p ../build
 	$(CC) $(CFLAGS) -o $(TARGET1) $(SOURCES1)
 
 $(STAGE2): $(SOURCES2) list.h door_struct.h
-	if not exist ..\build mkdir ..\build
+	mkdir -p ../build
 	$(CC) $(CFLAGS) -o $(TARGET2) $(SOURCES2)
 
 $(STAGE3): $(SOURCES3) stack.h
-	if not exist ..\build mkdir ..\build
+	mkdir -p ../build
 	$(CC) $(CFLAGS) -o $(TARGET3) $(SOURCES3)
 
 clean:
-	if exist ..\build rmdir /s /q ..\build
+	rm -rf ../build
 
 rebuild: clean all
 
